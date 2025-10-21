@@ -220,7 +220,7 @@ export default function InvitationSlider() {
                         TREINTA AÑOS
                       </p>
                       <p className="text-balance text-sm font-medium text-secondary sm:text-base">
-                        TREINTA AÑOS DE LA FIGURA DEL CURADOR URBANO EN COLOMBIA
+                        DE LA FIGURA DEL CURADOR URBANO EN COLOMBIA
                       </p>
                       <p className="text-balance text-xs font-medium text-muted-foreground sm:text-sm">
                         (Decreto-Ley 2150 de 1995)
@@ -296,7 +296,7 @@ export default function InvitationSlider() {
                         TREINTA AÑOS
                       </p>
                       <p className="text-balance text-sm font-medium text-secondary mt-2">
-                        TREINTA AÑOS DE LA FIGURA DEL CURADOR URBANO EN COLOMBIA
+                        DE LA FIGURA DEL CURADOR URBANO EN COLOMBIA
                       </p>
                       <p className="text-balance text-xs font-medium text-muted-foreground">
                         (Decreto-Ley 2150 de 1995)

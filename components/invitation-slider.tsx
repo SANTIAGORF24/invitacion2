@@ -137,29 +137,12 @@ export default function InvitationSlider() {
       >
         <div className="relative h-full w-full bg-white dark:bg-white">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-primary/5 to-transparent md:block" />
-            <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-secondary/5 to-transparent md:block" />
-            <div className="absolute right-[10%] top-[15%] h-64 w-64 animate-pulse rounded-full border-2 border-primary/20 opacity-40" />
-            <div
-              className="absolute right-[12%] top-[17%] h-56 w-56 animate-pulse rounded-full border border-primary/10 opacity-30"
-              style={{ animationDelay: "1s" }}
-            />
-            <div
-              className="absolute bottom-[20%] right-[15%] h-32 w-32 animate-pulse rounded-full border-2 border-secondary/20 opacity-40"
-              style={{ animationDelay: "0.5s" }}
-            />
-            <div
-              className="absolute bottom-[22%] right-[17%] h-24 w-24 animate-pulse rounded-full border border-secondary/10 opacity-30"
-              style={{ animationDelay: "1.5s" }}
-            />
-            <div className="absolute left-[5%] top-[30%] h-40 w-40 rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-2xl" />
-            <div className="absolute bottom-[10%] left-[10%] h-48 w-48 rounded-full bg-gradient-to-tr from-secondary/5 to-transparent blur-3xl" />
-            <div className="absolute right-[5%] bottom-[40%] h-36 w-36 rounded-full bg-gradient-to-bl from-primary/5 to-transparent blur-2xl" />
+            {/* Fondo limpio sin elementos decorativos */}
           </div>
 
           <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-4 py-20 sm:px-6 md:px-12 md:py-8 lg:px-24">
-            <div className="w-full max-w-7xl">
-              <div className="space-y-6 text-center md:space-y-8 lg:text-left">
+            <div className="w-full max-w-4xl">
+              <div className="space-y-6 text-center md:space-y-8">
                 {/* Título principal */}
                 <div
                   className={`space-y-3 transition-all duration-1000 md:space-y-4 ${
@@ -173,31 +156,31 @@ export default function InvitationSlider() {
                   </h1>
                 </div>
 
-                {/* Logo 30 años (móvil) */}
+                {/* Logo 30 años y texto central */}
                 <div
-                  className={`transition-all duration-1000 lg:hidden ${
+                  className={`transition-all duration-1000 ${
                     showElements.logo30
                       ? "scale-100 opacity-100 translate-y-0"
                       : "scale-75 opacity-0 translate-y-12"
                   }`}
                 >
-                  <div className="flex flex-col items-center gap-3">
+                  <div className="flex flex-col items-center gap-3 lg:gap-6">
                     <Image
                       src="/images/30-anos-logo.png"
                       alt="30 Años Curador Urbano"
-                      width={200}
-                      height={200}
-                      className="h-32 w-auto drop-shadow-2xl sm:h-40"
+                      width={300}
+                      height={300}
+                      className="h-32 w-auto drop-shadow-2xl sm:h-40 lg:h-56 xl:h-64"
                     />
                     <div
-                      className={`flex items-start justify-center gap-2 md:gap-3 lg:justify-start transition-all duration-700 delay-200 ${
+                      className={`flex items-start justify-center gap-2 md:gap-3 transition-all duration-700 delay-200 ${
                         showElements.subtitle
                           ? "opacity-100 translate-x-0"
                           : "opacity-0 -translate-x-8"
                       }`}
                     >
                       <p
-                        className="text-balance text-xl leading-relaxed text-secondary italic antialiased sm:text-2xl md:text-3xl lg:text-4xl"
+                        className="text-balance text-center text-xl leading-relaxed text-secondary italic antialiased sm:text-2xl md:text-3xl lg:text-4xl"
                         style={{
                           fontFamily:
                             '"Playfair Display","Cormorant Garamond","EB Garamond","Libre Baskerville","Times New Roman",serif',
@@ -216,16 +199,16 @@ export default function InvitationSlider() {
                           : "opacity-0 translate-y-4"
                       }`}
                     >
-                      <p className="text-balance font-serif text-lg font-bold text-primary sm:text-xl">
+                      <p className="text-balance font-serif text-lg font-bold text-primary sm:text-xl lg:text-3xl xl:text-4xl">
                         TREINTA AÑOS
                       </p>
-                      <p className="text-balance text-sm font-medium text-secondary sm:text-base">
+                      <p className="text-balance text-sm font-medium text-secondary sm:text-base lg:text-xl xl:text-2xl">
                         DE LA FIGURA DEL CURADOR URBANO EN COLOMBIA
                       </p>
-                      <p className="text-balance text-xs font-medium text-muted-foreground sm:text-sm">
+                      <p className="text-balance text-xs font-medium text-muted-foreground sm:text-sm lg:text-base">
                         (Decreto-Ley 2150 de 1995)
                       </p>
-                      <div className="mx-auto mt-1 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-secondary sm:w-20" />
+                      <div className="mx-auto mt-1 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-secondary sm:w-20 lg:w-32" />
                     </div>
                   </div>
                 </div>
@@ -238,9 +221,9 @@ export default function InvitationSlider() {
                       : "-translate-x-full opacity-0"
                   }`}
                 >
-                  <div className="mx-auto flex max-w-md items-center gap-2 rounded-lg bg-card p-3 shadow-sm md:gap-3 md:p-4 lg:mx-0">
-                    <Calendar className="h-4 w-4 text-primary md:h-5 md:w-5" />
-                    <p className="text-sm font-semibold text-foreground md:text-base">
+                  <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-lg bg-card p-3 shadow-sm md:gap-3 md:p-4 lg:p-6">
+                    <Calendar className="h-4 w-4 text-primary md:h-5 md:w-5 lg:h-7 lg:w-7" />
+                    <p className="text-sm font-semibold text-foreground md:text-base lg:text-xl xl:text-2xl">
                       28 y 29 de noviembre de 2025
                     </p>
                   </div>
@@ -254,55 +237,11 @@ export default function InvitationSlider() {
                       : "translate-x-full opacity-0"
                   }`}
                 >
-                  <div className="mx-auto flex max-w-md items-center gap-2 rounded-lg bg-card p-3 shadow-sm md:gap-3 md:p-4 lg:mx-0">
-                    <MapPin className="h-4 w-4 text-secondary md:h-5 md:w-5" />
-                    <p className="text-sm font-semibold text-foreground md:text-base">
+                  <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-lg bg-card p-3 shadow-sm md:gap-3 md:p-4 lg:p-6">
+                    <MapPin className="h-4 w-4 text-secondary md:h-5 md:w-5 lg:h-7 lg:w-7" />
+                    <p className="text-sm font-semibold text-foreground md:text-base lg:text-xl xl:text-2xl">
                       Montería y San Antero, Córdoba
                     </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Logo 30 años lateral (desktop) */}
-              <div className="absolute right-12 top-1/2 hidden -translate-y-1/2 lg:block xl:right-24">
-                <div
-                  className={`relative transition-all duration-1000 ${
-                    showElements.sideImage
-                      ? "translate-x-0 scale-100 opacity-100"
-                      : "translate-x-24 scale-75 opacity-0"
-                  }`}
-                >
-                  <div className="absolute inset-0 -z-10 flex items-center justify-center">
-                    <div className="h-[350px] w-[350px] rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 xl:h-[400px] xl:w-[400px] animate-pulse" />
-                  </div>
-
-                  <div className="relative flex flex-col items-center gap-6 p-8">
-                    <Image
-                      src="/images/30-anos-logo.png"
-                      alt="30 Años Curador Urbano"
-                      width={300}
-                      height={300}
-                      className="h-64 w-auto drop-shadow-2xl xl:h-80"
-                    />
-
-                    <div
-                      className={`text-center transition-all duration-700 delay-500 ${
-                        showElements.sideImage
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 translate-y-8"
-                      }`}
-                    >
-                      <p className="text-balance font-serif text-3xl font-bold text-primary">
-                        TREINTA AÑOS
-                      </p>
-                      <p className="text-balance text-sm font-medium text-secondary mt-2">
-                        DE LA FIGURA DEL CURADOR URBANO EN COLOMBIA
-                      </p>
-                      <p className="text-balance text-xs font-medium text-muted-foreground">
-                        (Decreto-Ley 2150 de 1995)
-                      </p>
-                      <div className="mx-auto mt-2 h-1 w-24 rounded-full bg-gradient-to-r from-primary to-secondary" />
-                    </div>
                   </div>
                 </div>
               </div>

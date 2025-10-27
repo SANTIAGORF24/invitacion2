@@ -10,9 +10,15 @@ import {
   Clock,
   Calendar,
   Sparkles,
+  User,
+  Hash,
+  CheckCircle2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import Image from "next/image";
+import { supabase } from "@/lib/supabase";
 
 export default function InvitationSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -29,18 +35,27 @@ export default function InvitationSlider() {
     sideImage: false,
   });
 
+  // Estados del formulario
+  const [loading, setLoading] = useState(false);
+  const [enviado, setEnviado] = useState(false);
+  const [formData, setFormData] = useState({
+    nombre: "",
+    numero_despacho: "",
+    municipio: "",
+  });
+
   const nextSlide = () => {
     if (isAnimating) return;
     setDirection("next");
     setIsAnimating(true);
-    setCurrentSlide((prev) => (prev + 1) % 2);
+    setCurrentSlide((prev) => (prev + 1) % 4);
   };
 
   const prevSlide = () => {
     if (isAnimating) return;
     setDirection("prev");
     setIsAnimating(true);
-    setCurrentSlide((prev) => (prev - 1 + 2) % 2);
+    setCurrentSlide((prev) => (prev - 1 + 4) % 4);
   };
 
   useEffect(() => {
@@ -49,6 +64,60 @@ export default function InvitationSlider() {
       return () => clearTimeout(timer);
     }
   }, [isAnimating]);
+
+  // Funciones del formulario
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.nombre || !formData.numero_despacho || !formData.municipio) {
+      alert("Por favor complete todos los campos");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const { error } = await supabase.from("asistencias").insert([
+        {
+          nombre: formData.nombre,
+          numero_despacho: formData.numero_despacho,
+          municipio: formData.municipio,
+          fecha_registro: new Date().toISOString(),
+        },
+      ]);
+
+      if (error) {
+        console.error("Error al registrar:", error);
+        alert("Error al registrar su asistencia. Por favor intente nuevamente.");
+        return;
+      }
+
+      setEnviado(true);
+      
+      // Volver al primer slide después de 3 segundos
+      setTimeout(() => {
+        setEnviado(false);
+        setFormData({
+          nombre: "",
+          numero_despacho: "",
+          municipio: "",
+        });
+        setCurrentSlide(0);
+      }, 3000);
+    } catch (err) {
+      console.error("Error inesperado:", err);
+      alert("Error al registrar su asistencia. Por favor intente nuevamente.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Animaciones secuenciales para el primer slide
   useEffect(() => {
@@ -306,11 +375,8 @@ export default function InvitationSlider() {
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-primary md:text-xl">
-                          Viernes
+                          Viernes 28 de noviembre
                         </h3>
-                        <p className="text-xs text-muted-foreground md:text-sm">
-                          Noviembre 2025
-                        </p>
                       </div>
                     </div>
 
@@ -319,43 +385,27 @@ export default function InvitationSlider() {
                         <MapPin className="mt-1 h-4 w-4 flex-shrink-0 text-secondary md:h-5 md:w-5" />
                         <div>
                           <p className="text-sm font-semibold text-foreground md:text-base">
-                            Montería - Córdoba
-                          </p>
-                          <p className="text-xs text-muted-foreground md:text-sm">
-                            Pueblito Cordobés
+                            Lugar: Auditorio Pueblito Cordobés - Montería
                           </p>
                         </div>
                       </div>
 
                       <div className="flex items-start gap-2 md:gap-3">
                         <Clock className="mt-1 h-4 w-4 flex-shrink-0 text-secondary md:h-5 md:w-5" />
-                        <div className="space-y-1">
+                        <div className="space-y-2">
                           <p className="text-xs text-foreground md:text-sm">
-                            <span className="font-semibold">9:00 a.m.</span> -
-                            Inicio
+                            <span className="font-semibold">8:30 a.m. - 3:00 p.m.</span> Evento académico
                           </p>
                           <p className="text-xs text-foreground md:text-sm">
-                            <span className="font-semibold">
-                              4:00 - 5:00 p.m.
-                            </span>{" "}
-                            - Parada folclórica
+                            <span className="font-semibold">3:00 p.m. - 4:00 p.m.</span> Parada Folclórica
+                          </p>
+                          <p className="text-xs text-foreground md:text-sm">
+                            <span className="font-semibold">5:00 p.m. - 6:00 p.m.</span> Recorrido
+                          </p>
+                          <p className="text-xs text-foreground md:text-sm">
+                            <span className="font-semibold">7:30 p.m.</span> Noche de Celebración
                           </p>
                         </div>
-                      </div>
-
-                      <div className="mt-3 rounded-lg bg-primary/5 p-3 md:mt-4 md:p-4">
-                        <p className="text-xs font-medium text-foreground md:text-sm">
-                          Varios eventos, incluye almuerzo
-                        </p>
-                      </div>
-
-                      <div className="mt-3 rounded-lg border-l-4 border-secondary bg-secondary/5 p-3 md:mt-4 md:p-4">
-                        <p className="text-xs font-semibold text-foreground md:text-sm">
-                          8:00 p.m. - Noche de Playa
-                        </p>
-                        <p className="mt-1 text-xs text-muted-foreground">
-                          Traslado a Hotel San Antero (50 min aprox.)
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -376,52 +426,26 @@ export default function InvitationSlider() {
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-secondary md:text-xl">
-                          Sábado
+                          Sábado 29 de noviembre
                         </h3>
-                        <p className="text-xs text-muted-foreground md:text-sm">
-                          Noviembre 2025
-                        </p>
                       </div>
                     </div>
 
                     <div className="space-y-3 md:space-y-4">
                       <div className="flex items-start gap-2 md:gap-3">
-                        <MapPin className="mt-1 h-4 w-4 flex-shrink-0 text-primary md:h-5 md:w-5" />
-                        <div>
-                          <p className="text-sm font-semibold text-foreground md:text-base">
-                            San Antero - Córdoba
-                          </p>
-                          <p className="text-xs text-muted-foreground md:text-sm">
-                            Playas Hotel San Antero
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-2 md:gap-3">
                         <Clock className="mt-1 h-4 w-4 flex-shrink-0 text-primary md:h-5 md:w-5" />
                         <div className="space-y-1">
                           <p className="text-xs text-foreground md:text-sm">
-                            <span className="font-semibold">9:00 a.m.</span> -
-                            Inicio
-                          </p>
-                          <p className="text-xs text-foreground md:text-sm">
-                            <span className="font-semibold">1:00 p.m.</span> -
-                            Clausura
+                            <span className="font-semibold">9:00 a.m. - 1:00 p.m.</span> Actividad de Integración - Playa
                           </p>
                         </div>
-                      </div>
-
-                      <div className="mt-3 rounded-lg bg-secondary/5 p-3 md:mt-4 md:p-4">
-                        <p className="text-xs italic text-foreground md:text-sm">
-                          Actividades de playa para afiliados alojados
-                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Beneficio Especial */}
+              {/* Notas Importantes */}
               <div
                 className={`transition-all duration-1000 delay-500 ${
                   currentSlide === 1 && !isAnimating
@@ -429,19 +453,24 @@ export default function InvitationSlider() {
                     : "scale-95 opacity-0"
                 }`}
               >
-                <div className="rounded-2xl border-2 border-secondary bg-gradient-to-br from-secondary/10 to-primary/5 p-5 shadow-xl md:p-8">
-                  <div className="mb-3 flex items-center justify-center gap-2 md:mb-4">
-                    <Sparkles className="h-5 w-5 text-secondary md:h-6 md:w-6" />
-                    <h3 className="text-lg font-bold text-secondary md:text-xl">
-                      Beneficio Especial
-                    </h3>
-                    <Sparkles className="h-5 w-5 text-secondary md:h-6 md:w-6" />
+                <div className="space-y-4">
+                  <div className="rounded-2xl border-2 border-secondary bg-gradient-to-br from-secondary/10 to-primary/5 p-5 shadow-xl md:p-8">
+                    <div className="mb-3 flex items-center justify-center gap-2 md:mb-4">
+                      <Sparkles className="h-5 w-5 text-secondary md:h-6 md:w-6" />
+                      <h3 className="text-lg font-bold text-secondary md:text-xl">
+                        Nota Importante
+                      </h3>
+                      <Sparkles className="h-5 w-5 text-secondary md:h-6 md:w-6" />
+                    </div>
+                    <div className="space-y-3 text-sm md:text-base">
+                      <p className="text-foreground">
+                        • Los primeros 30 asociados que confirmen su asistencia mediante el formulario de inscripción recibirán una noche de alojamiento gratuita, correspondiente a la noche del viernes 28 de noviembre de 2025.
+                      </p>
+                      <p className="text-foreground">
+                        • Para la noche de celebración del viernes 28 de noviembre, cada curador podrá asistir únicamente con un acompañante mayor de edad.
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-balance text-center text-sm font-semibold leading-relaxed text-foreground md:text-base lg:text-lg">
-                    Los primeros 30 afiliados que confirmen asistencia recibirán
-                    una noche de alojamiento totalmente gratis el viernes 28 de
-                    noviembre de 2025.
-                  </p>
                 </div>
               </div>
             </div>
@@ -449,7 +478,271 @@ export default function InvitationSlider() {
         </div>
       </div>
 
-      <div className="absolute bottom-6 right-4 z-20 hidden gap-2 md:bottom-12 md:right-12 md:gap-3">
+      {/* Slide 3 - Confirmación */}
+      <div
+        className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out ${
+          currentSlide === 2
+            ? "translate-x-0 opacity-100"
+            : direction === "next"
+            ? "-translate-x-full opacity-0"
+            : "translate-x-full opacity-0"
+        }`}
+      >
+        <div className="relative h-full w-full bg-gradient-to-br from-primary/5 via-white to-secondary/5 dark:from-primary/5 dark:via-white dark:to-secondary/5">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent" />
+            <div className="absolute bottom-0 right-0 h-1/2 w-full bg-gradient-to-t from-secondary/10 via-secondary/5 to-transparent" />
+            <div className="absolute left-[10%] top-[20%] h-64 w-64 animate-pulse rounded-full border border-primary/20 opacity-20" />
+            <div
+              className="absolute right-[10%] bottom-[25%] h-56 w-56 animate-pulse rounded-full border border-secondary/20 opacity-20"
+              style={{ animationDelay: "0.5s" }}
+            />
+          </div>
+
+          <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-4 py-12 sm:px-6 md:px-12 md:py-16 lg:px-24">
+            <div className="w-full max-w-3xl space-y-8 md:space-y-12">
+              <div
+                className={`text-center transition-all duration-1000 delay-200 ${
+                  currentSlide === 2 && !isAnimating
+                    ? "translate-y-0 opacity-100"
+                    : "-translate-y-8 opacity-0"
+                }`}
+              >
+                <div className="mb-6 flex justify-center">
+                  <div className="rounded-full bg-gradient-to-br from-primary to-secondary p-6 shadow-2xl">
+                    <Sparkles className="h-12 w-12 text-white md:h-16 md:w-16" />
+                  </div>
+                </div>
+                <h2 className="mb-4 font-serif text-3xl font-bold text-primary sm:text-4xl md:text-5xl lg:text-6xl">
+                  ¡Confirme su Participación!
+                </h2>
+                <p className="text-balance text-lg leading-relaxed text-foreground md:text-xl lg:text-2xl">
+                  Confirme su participación diligenciando el siguiente formulario
+                </p>
+              </div>
+
+              <div
+                className={`transition-all duration-1000 delay-400 ${
+                  currentSlide === 2 && !isAnimating
+                    ? "scale-100 opacity-100"
+                    : "scale-95 opacity-0"
+                }`}
+              >
+                <div className="rounded-3xl border-2 border-primary/20 bg-card p-8 shadow-2xl md:p-12">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-center gap-3">
+                      <div className="h-1 w-12 rounded-full bg-gradient-to-r from-transparent to-primary" />
+                      <Calendar className="h-8 w-8 text-primary" />
+                      <div className="h-1 w-12 rounded-full bg-gradient-to-l from-transparent to-primary" />
+                    </div>
+                    
+                    <p className="text-center text-base text-muted-foreground md:text-lg">
+                      Complete el registro para asegurar su lugar en este evento especial
+                    </p>
+
+                    <div className="flex justify-center pt-4">
+                      <Button
+                        size="lg"
+                        className="group relative overflow-hidden bg-gradient-to-r from-primary to-secondary px-8 py-6 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-primary/50 md:px-12 md:py-8 md:text-xl"
+                        onClick={nextSlide}
+                      >
+                        <span className="relative z-10 flex items-center gap-3">
+                          Registro de participación
+                          <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1 md:h-6 md:w-6" />
+                        </span>
+                        <div className="absolute inset-0 -z-0 bg-gradient-to-r from-secondary to-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      </Button>
+                    </div>
+
+                    <div className="mt-8 rounded-xl bg-secondary/10 p-4 md:p-6">
+                      <p className="text-center text-sm italic text-muted-foreground md:text-base">
+                        Recuerde: Los primeros 30 asociados que confirmen recibirán alojamiento gratuito
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Slide 4 - Formulario de Registro */}
+      <div
+        className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out ${
+          currentSlide === 3
+            ? "translate-x-0 opacity-100"
+            : direction === "next"
+            ? "-translate-x-full opacity-0"
+            : "translate-x-full opacity-0"
+        }`}
+      >
+        <div className="relative h-full w-full bg-gradient-to-br from-primary/5 via-white to-secondary/5 dark:from-primary/5 dark:via-white dark:to-secondary/5">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent" />
+            <div className="absolute bottom-0 right-0 h-1/2 w-full bg-gradient-to-t from-secondary/10 via-secondary/5 to-transparent" />
+          </div>
+
+          <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-4 py-8 sm:px-6 md:px-12 lg:px-24">
+            {enviado ? (
+              <div className="w-full max-w-md text-center">
+                <div
+                  className={`transition-all duration-1000 ${
+                    currentSlide === 3 && !isAnimating
+                      ? "scale-100 opacity-100"
+                      : "scale-95 opacity-0"
+                  }`}
+                >
+                  <div className="rounded-3xl border-2 border-green-500/20 bg-white p-8 shadow-2xl">
+                    <div className="mb-6 flex justify-center">
+                      <div className="rounded-full bg-gradient-to-br from-green-500 to-green-600 p-6 shadow-2xl">
+                        <CheckCircle2 className="h-16 w-16 text-white" />
+                      </div>
+                    </div>
+                    <h2 className="mb-4 text-3xl font-bold text-green-600">
+                      ¡Registro Exitoso!
+                    </h2>
+                    <p className="mb-6 text-lg text-foreground">
+                      Su participación ha sido confirmada exitosamente.
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Nos vemos el 28 y 29 de noviembre en Montería y San Antero.
+                    </p>
+                    <div className="mt-6 rounded-xl bg-green-50 p-4">
+                      <p className="text-xs italic text-green-700">
+                        Redirigiendo al inicio...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="w-full max-w-2xl">
+                <div
+                  className={`mb-6 text-center transition-all duration-1000 delay-200 ${
+                    currentSlide === 3 && !isAnimating
+                      ? "translate-y-0 opacity-100"
+                      : "-translate-y-8 opacity-0"
+                  }`}
+                >
+                  <div className="mb-4 flex justify-center">
+                    <div className="rounded-full bg-gradient-to-br from-primary to-secondary p-4 shadow-2xl md:p-6">
+                      <Sparkles className="h-10 w-10 text-white md:h-12 md:w-12" />
+                    </div>
+                  </div>
+                  <h2 className="mb-3 font-serif text-2xl font-bold text-primary md:text-3xl lg:text-4xl">
+                    Registro de Participación
+                  </h2>
+                  <p className="text-base text-muted-foreground md:text-lg">
+                    Celebración 30 Años del Curador Urbano
+                  </p>
+                  <div className="mx-auto mt-3 flex max-w-xl flex-col gap-2 text-sm text-foreground sm:flex-row sm:justify-center sm:gap-4">
+                    <span className="flex items-center justify-center gap-2">
+                      <Calendar className="h-4 w-4 text-primary" />
+                      28-29 Noviembre 2025
+                    </span>
+                    <span className="flex items-center justify-center gap-2">
+                      <MapPin className="h-4 w-4 text-secondary" />
+                      Montería y San Antero
+                    </span>
+                  </div>
+                </div>
+
+                <div
+                  className={`transition-all duration-1000 delay-400 ${
+                    currentSlide === 3 && !isAnimating
+                      ? "scale-100 opacity-100"
+                      : "scale-95 opacity-0"
+                  }`}
+                >
+                  <div className="rounded-3xl border-2 border-primary/20 bg-white p-6 shadow-2xl md:p-8">
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                      <div className="space-y-2">
+                        <Label htmlFor="nombre" className="flex items-center gap-2 text-sm font-semibold text-foreground md:text-base">
+                          <User className="h-4 w-4 text-primary md:h-5 md:w-5" />
+                          Nombre Completo *
+                        </Label>
+                        <Input
+                          id="nombre"
+                          name="nombre"
+                          type="text"
+                          placeholder="Ej: Juan Carlos Pérez García"
+                          value={formData.nombre}
+                          onChange={handleChange}
+                          required
+                          disabled={loading}
+                          className="h-11 text-sm md:h-12 md:text-base"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="numero_despacho" className="flex items-center gap-2 text-sm font-semibold text-foreground md:text-base">
+                          <Hash className="h-4 w-4 text-primary md:h-5 md:w-5" />
+                          Número de Despacho *
+                        </Label>
+                        <Input
+                          id="numero_despacho"
+                          name="numero_despacho"
+                          type="text"
+                          placeholder="Ej: 001-2024"
+                          value={formData.numero_despacho}
+                          onChange={handleChange}
+                          required
+                          disabled={loading}
+                          className="h-11 text-sm md:h-12 md:text-base"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="municipio" className="flex items-center gap-2 text-sm font-semibold text-foreground md:text-base">
+                          <MapPin className="h-4 w-4 text-primary md:h-5 md:w-5" />
+                          Municipio/Ciudad *
+                        </Label>
+                        <Input
+                          id="municipio"
+                          name="municipio"
+                          type="text"
+                          placeholder="Ej: Bogotá D.C."
+                          value={formData.municipio}
+                          onChange={handleChange}
+                          required
+                          disabled={loading}
+                          className="h-11 text-sm md:h-12 md:text-base"
+                        />
+                      </div>
+
+                      <div className="rounded-xl bg-secondary/10 p-3 md:p-4">
+                        <p className="text-xs font-semibold text-secondary md:text-sm">
+                          ⭐ Beneficio Especial
+                        </p>
+                        <p className="mt-2 text-xs text-muted-foreground">
+                          Los primeros 30 asociados que confirmen su asistencia recibirán una noche de alojamiento gratuita correspondiente al viernes 28 de noviembre de 2025.
+                        </p>
+                      </div>
+
+                      <Button
+                        type="submit"
+                        disabled={loading}
+                        className="h-12 w-full bg-gradient-to-r from-primary to-secondary text-base font-bold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-primary/50 md:h-14 md:text-lg"
+                      >
+                        {loading ? "Registrando..." : "Confirmar Participación"}
+                      </Button>
+
+                      <div className="text-center">
+                        <p className="text-xs text-muted-foreground">
+                          * Todos los campos son obligatorios
+                        </p>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-6 right-4 z-20 flex gap-2 md:bottom-12 md:right-12 md:gap-3">
         <Button
           onClick={prevSlide}
           disabled={isAnimating}
@@ -473,7 +766,7 @@ export default function InvitationSlider() {
         </Button>
       </div>
 
-      <div className="absolute bottom-6 left-4 z-20 hidden items-center gap-2 md:bottom-12 md:left-12 md:gap-3">
+      <div className="absolute bottom-6 left-4 z-20 flex items-center gap-2 md:bottom-12 md:left-12 md:gap-3">
         <div
           className={`h-2.5 w-2.5 rounded-full transition-all md:h-3 md:w-3 ${
             currentSlide === 0 ? "w-6 bg-primary md:w-8" : "bg-primary/30"
@@ -482,6 +775,16 @@ export default function InvitationSlider() {
         <div
           className={`h-2.5 w-2.5 rounded-full transition-all md:h-3 md:w-3 ${
             currentSlide === 1 ? "w-6 bg-primary md:w-8" : "bg-primary/30"
+          }`}
+        />
+        <div
+          className={`h-2.5 w-2.5 rounded-full transition-all md:h-3 md:w-3 ${
+            currentSlide === 2 ? "w-6 bg-primary md:w-8" : "bg-primary/30"
+          }`}
+        />
+        <div
+          className={`h-2.5 w-2.5 rounded-full transition-all md:h-3 md:w-3 ${
+            currentSlide === 3 ? "w-6 bg-primary md:w-8" : "bg-primary/30"
           }`}
         />
       </div>

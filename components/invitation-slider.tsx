@@ -311,7 +311,7 @@ export default function InvitationSlider() {
                       <Sparkles className="h-6 w-6 text-secondary md:h-7 md:w-7" />
                     </div>
                     <p className="text-base leading-relaxed text-foreground text-justify md:text-lg lg:text-xl">
-                      Los primeros 30 curadores urbanos miembros del Colegio Nacional de Curadores Urbanos que confirmen su asistencia mediante el formulario de inscripción recibirán la noche de alojamiento del viernes 28 de noviembre de 2025 gratuita.
+                      Para la noche de celebración del viernes 28 de noviembre cada curador podrá asistir con un acompañante mayor de edad.
                     </p>
                   </div>
 
@@ -323,7 +323,19 @@ export default function InvitationSlider() {
                       <Sparkles className="h-6 w-6 text-primary md:h-7 md:w-7" />
                     </div>
                     <p className="text-base leading-relaxed text-foreground text-justify md:text-lg lg:text-xl">
-                      Para la noche de celebración del viernes 28 de noviembre cada curador podrá asistir con un acompañante mayor de edad.
+                      Los primeros 30 curadores urbanos miembros del Colegio Nacional de Curadores Urbanos que confirmen su asistencia mediante el formulario de inscripción recibirán la noche de alojamiento del viernes 28 de noviembre de 2025 gratuita, siempre y cuando se encuentren a paz y salvo hasta el mes de octubre.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border-2 border-secondary/30 bg-gradient-to-br from-secondary/10 to-primary/5 p-6 shadow-xl md:p-10">
+                    <div className="mb-4 flex items-center gap-3 md:mb-6">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-lg font-bold text-white md:h-12 md:w-12 md:text-xl">
+                        3
+                      </div>
+                      <Sparkles className="h-6 w-6 text-secondary md:h-7 md:w-7" />
+                    </div>
+                    <p className="text-base leading-relaxed text-foreground text-justify md:text-lg lg:text-xl">
+                      El beneficio de alojamiento para la noche del 28 de noviembre de 2025 no aplica para los miembros de la Junta Directiva.
                     </p>
                   </div>
                 </div>

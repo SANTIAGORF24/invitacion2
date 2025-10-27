@@ -444,7 +444,7 @@ export default function InvitationSlider() {
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">1:30 p.m.</span> El Presente del Curador Urbano – Arq. William Toboada Díaz, Presidente del CNCU
+                          <span className="font-semibold">1:30 p.m.</span> El Presente del Curador Urbano – Arq. William Taboada Díaz, Presidente del CNCU
                         </div>
                       </div>
                       <div className="flex gap-2">

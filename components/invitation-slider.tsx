@@ -209,18 +209,18 @@ export default function InvitationSlider() {
             {/* Fondo limpio sin elementos decorativos */}
           </div>
 
-          <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-4 py-20 sm:px-6 md:px-12 md:py-8 lg:px-24">
+          <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-8 lg:px-24">
             <div className="w-full max-w-4xl">
-              <div className="space-y-6 text-center md:space-y-8">
+              <div className="space-y-4 text-center md:space-y-6 lg:space-y-8">
                 {/* Título principal */}
                 <div
-                  className={`space-y-3 transition-all duration-1000 md:space-y-4 ${
+                  className={`space-y-2 transition-all duration-1000 md:space-y-3 lg:space-y-4 ${
                     showElements.title
                       ? "translate-x-0 opacity-100"
                       : "-translate-x-full opacity-0"
                   }`}
                 >
-                  <h1 className="text-balance font-serif text-2xl font-bold leading-tight tracking-tight text-primary sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                  <h1 className="text-balance font-serif text-xl font-bold leading-tight tracking-tight text-primary sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
                     EL COLEGIO NACIONAL DE CURADORES URBANOS
                   </h1>
                 </div>
@@ -234,7 +234,7 @@ export default function InvitationSlider() {
                   }`}
                 >
                   <p
-                    className="text-balance text-center text-xl leading-relaxed text-secondary italic antialiased sm:text-2xl md:text-3xl lg:text-4xl"
+                    className="text-balance text-center text-base leading-relaxed text-secondary italic antialiased sm:text-xl md:text-2xl lg:text-3xl"
                     style={{
                       fontFamily:
                         '"Playfair Display","Cormorant Garamond","EB Garamond","Libre Baskerville","Times New Roman",serif',
@@ -255,13 +255,13 @@ export default function InvitationSlider() {
                       : "scale-75 opacity-0 translate-y-12"
                   }`}
                 >
-                  <div className="flex flex-col items-center gap-3 lg:gap-6">
+                  <div className="flex flex-col items-center gap-2 md:gap-3 lg:gap-4">
                     <Image
                       src="/images/30-anos-logo.png"
                       alt="30 Años Curador Urbano"
                       width={300}
                       height={300}
-                      className="h-32 w-auto drop-shadow-2xl sm:h-40 lg:h-56 xl:h-64"
+                      className="h-24 w-auto drop-shadow-2xl sm:h-32 md:h-40 lg:h-48 xl:h-56"
                     />
                     <div
                       className={`text-center transition-all duration-700 delay-400 ${
@@ -270,13 +270,13 @@ export default function InvitationSlider() {
                           : "opacity-0 translate-y-4"
                       }`}
                     >
-                      <p className="text-balance font-serif text-lg font-bold text-primary sm:text-xl lg:text-3xl xl:text-4xl">
+                      <p className="text-balance font-serif text-base font-bold text-primary sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
                         TREINTA AÑOS
                       </p>
-                      <p className="text-balance text-sm font-medium text-secondary sm:text-base lg:text-xl xl:text-2xl">
+                      <p className="text-balance text-xs font-medium text-secondary sm:text-sm md:text-base lg:text-lg xl:text-xl">
                         DE LA FIGURA DEL CURADOR URBANO EN COLOMBIA
                       </p>
-                      <p className="text-balance text-xs font-medium text-muted-foreground sm:text-sm lg:text-base">
+                      <p className="text-balance text-xs font-medium text-muted-foreground sm:text-xs md:text-sm lg:text-base">
                         (Decreto-Ley 2150 de 1995)
                       </p>
                       <div className="mx-auto mt-1 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-secondary sm:w-20 lg:w-32" />
@@ -292,9 +292,9 @@ export default function InvitationSlider() {
                       : "-translate-x-full opacity-0"
                   }`}
                 >
-                  <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-lg bg-card p-3 shadow-sm md:gap-3 md:p-4 lg:p-6">
-                    <Calendar className="h-4 w-4 text-primary md:h-5 md:w-5 lg:h-7 lg:w-7" />
-                    <p className="text-sm font-semibold text-foreground md:text-base lg:text-xl xl:text-2xl">
+                  <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-lg bg-card p-2 shadow-sm sm:p-3 md:gap-3 md:p-4 lg:p-6">
+                    <Calendar className="h-4 w-4 text-primary sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7" />
+                    <p className="text-xs font-semibold text-foreground sm:text-sm md:text-base lg:text-lg xl:text-xl">
                       28 y 29 de noviembre de 2025
                     </p>
                   </div>
@@ -308,9 +308,9 @@ export default function InvitationSlider() {
                       : "translate-x-full opacity-0"
                   }`}
                 >
-                  <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-lg bg-card p-3 shadow-sm md:gap-3 md:p-4 lg:p-6">
-                    <MapPin className="h-4 w-4 text-secondary md:h-5 md:w-5 lg:h-7 lg:w-7" />
-                    <p className="text-sm font-semibold text-foreground md:text-base lg:text-xl xl:text-2xl">
+                  <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-lg bg-card p-2 shadow-sm sm:p-3 md:gap-3 md:p-4 lg:p-6">
+                    <MapPin className="h-4 w-4 text-secondary sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7" />
+                    <p className="text-xs font-semibold text-foreground sm:text-sm md:text-base lg:text-lg xl:text-xl">
                       Montería, Córdoba
                     </p>
                   </div>

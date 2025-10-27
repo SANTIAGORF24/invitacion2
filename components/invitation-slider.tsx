@@ -276,8 +276,8 @@ export default function InvitationSlider() {
             <div className="absolute bottom-0 right-0 h-1/2 w-full bg-gradient-to-t from-primary/10 via-primary/5 to-transparent" />
           </div>
 
-          <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-4 py-12 sm:px-6 md:px-12 md:py-16 lg:px-24">
-            <div className="w-full max-w-4xl space-y-8 md:space-y-12">
+          <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-4 py-8 sm:px-6 md:px-12 md:py-12 lg:px-24">
+            <div className="w-full max-w-4xl space-y-4 md:space-y-6">
               <div
                 className={`text-center transition-all duration-1000 delay-200 ${
                   currentSlide === 1 && !isAnimating
@@ -285,12 +285,12 @@ export default function InvitationSlider() {
                     : "-translate-y-8 opacity-0"
                 }`}
               >
-                <div className="mb-6 flex justify-center">
-                  <div className="rounded-full bg-gradient-to-br from-secondary to-primary p-6 shadow-2xl">
-                    <Sparkles className="h-12 w-12 text-white md:h-16 md:w-16" />
+                <div className="mb-4 flex justify-center md:mb-5">
+                  <div className="rounded-full bg-gradient-to-br from-secondary to-primary p-4 shadow-2xl md:p-5">
+                    <Sparkles className="h-8 w-8 text-white md:h-10 md:w-10" />
                   </div>
                 </div>
-                <h2 className="mb-4 font-serif text-3xl font-bold text-secondary sm:text-4xl md:text-5xl lg:text-6xl">
+                <h2 className="mb-3 font-serif text-2xl font-bold text-secondary sm:text-3xl md:text-4xl lg:text-5xl">
                   Notas Importantes
                 </h2>
               </div>
@@ -302,40 +302,40 @@ export default function InvitationSlider() {
                     : "scale-95 opacity-0"
                 }`}
               >
-                <div className="space-y-6 md:space-y-8">
-                  <div className="rounded-2xl border-2 border-secondary/30 bg-gradient-to-br from-secondary/10 to-primary/5 p-6 shadow-xl md:p-10">
-                    <div className="mb-4 flex items-center gap-3 md:mb-6">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-lg font-bold text-white md:h-12 md:w-12 md:text-xl">
+                <div className="space-y-3 md:space-y-4">
+                  <div className="rounded-2xl border-2 border-secondary/30 bg-gradient-to-br from-secondary/10 to-primary/5 p-4 shadow-xl md:p-6">
+                    <div className="mb-2 flex items-center gap-2 md:mb-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-base font-bold text-white md:h-10 md:w-10 md:text-lg">
                         1
                       </div>
-                      <Sparkles className="h-6 w-6 text-secondary md:h-7 md:w-7" />
+                      <Sparkles className="h-5 w-5 text-secondary md:h-6 md:w-6" />
                     </div>
-                    <p className="text-base leading-relaxed text-foreground text-justify md:text-lg lg:text-xl">
-                      Para la noche de celebración del viernes 28 de noviembre cada curador podrá asistir con un acompañante mayor de edad.
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-secondary/5 p-6 shadow-xl md:p-10">
-                    <div className="mb-4 flex items-center gap-3 md:mb-6">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-white md:h-12 md:w-12 md:text-xl">
-                        2
-                      </div>
-                      <Sparkles className="h-6 w-6 text-primary md:h-7 md:w-7" />
-                    </div>
-                    <p className="text-base leading-relaxed text-foreground text-justify md:text-lg lg:text-xl">
+                    <p className="text-sm leading-relaxed text-foreground text-justify md:text-base lg:text-lg">
                       Los primeros 30 curadores urbanos miembros del Colegio Nacional de Curadores Urbanos que confirmen su asistencia mediante el formulario de inscripción recibirán la noche de alojamiento del viernes 28 de noviembre de 2025 gratuita, siempre y cuando se encuentren a paz y salvo hasta el mes de octubre.
                     </p>
                   </div>
 
-                  <div className="rounded-2xl border-2 border-secondary/30 bg-gradient-to-br from-secondary/10 to-primary/5 p-6 shadow-xl md:p-10">
-                    <div className="mb-4 flex items-center gap-3 md:mb-6">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-lg font-bold text-white md:h-12 md:w-12 md:text-xl">
+                  <div className="rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-secondary/5 p-4 shadow-xl md:p-6">
+                    <div className="mb-2 flex items-center gap-2 md:mb-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-base font-bold text-white md:h-10 md:w-10 md:text-lg">
+                        2
+                      </div>
+                      <Sparkles className="h-5 w-5 text-primary md:h-6 md:w-6" />
+                    </div>
+                    <p className="text-sm leading-relaxed text-foreground text-justify md:text-base lg:text-lg">
+                      El beneficio de alojamiento para la noche del 28 de noviembre de 2025 no aplica para los miembros de la Junta Directiva.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border-2 border-secondary/30 bg-gradient-to-br from-secondary/10 to-primary/5 p-4 shadow-xl md:p-6">
+                    <div className="mb-2 flex items-center gap-2 md:mb-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-base font-bold text-white md:h-10 md:w-10 md:text-lg">
                         3
                       </div>
-                      <Sparkles className="h-6 w-6 text-secondary md:h-7 md:w-7" />
+                      <Sparkles className="h-5 w-5 text-secondary md:h-6 md:w-6" />
                     </div>
-                    <p className="text-base leading-relaxed text-foreground text-justify md:text-lg lg:text-xl">
-                      El beneficio de alojamiento para la noche del 28 de noviembre de 2025 no aplica para los miembros de la Junta Directiva.
+                    <p className="text-sm leading-relaxed text-foreground text-justify md:text-base lg:text-lg">
+                      Para la noche de celebración del viernes 28 de noviembre cada curador podrá asistir con un acompañante mayor de edad.
                     </p>
                   </div>
                 </div>

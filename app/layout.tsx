@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   description: 'Celebración de las tres décadas del Colegio Nacional de Curadores Urbanos. 28-29 de Noviembre, 2025 en Montería y San Antero, Córdoba.',
   keywords: ['Curadores Urbanos', 'CNCU', '30 años', 'Montería', 'San Antero', 'Córdoba', 'Evento'],
   authors: [{ name: 'Colegio Nacional de Curadores Urbanos' }],
+  icons: {
+    icon: '/images/cncu-logo.webp',
+    apple: '/images/cncu-logo.webp',
+  },
   openGraph: {
     title: 'Invitación 30 Años CNCU',
     description: 'Celebración de las tres décadas del Colegio Nacional de Curadores Urbanos',

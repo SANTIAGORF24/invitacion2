@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     apple: '/images/cncu-logo.webp',
   },
   openGraph: {
-    title: 'Invitación 30 Años CNCU',
+    title: 'Celebración 30 años de la figura del Curador Urbano',
     description: 'Celebración de las tres décadas del Colegio Nacional de Curadores Urbanos',
     type: 'website',
   },

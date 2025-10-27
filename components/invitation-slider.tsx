@@ -211,107 +211,119 @@ export default function InvitationSlider() {
 
           <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-3 py-12 sm:px-6 sm:py-16 md:px-12 md:py-8 lg:px-24">
             <div className="w-full max-w-4xl">
-              <div className="space-y-3 text-center sm:space-y-4 md:space-y-6 lg:space-y-8">
-                {/* Título principal */}
+              <div className="space-y-6 text-center sm:space-y-8 md:space-y-10 lg:space-y-12">
+                {/* Registro de Asistencia */}
                 <div
-                  className={`space-y-2 transition-all duration-1000 md:space-y-3 lg:space-y-4 ${
+                  className={`space-y-2 transition-all duration-1000 md:space-y-3 ${
                     showElements.title
-                      ? "translate-x-0 opacity-100"
-                      : "-translate-x-full opacity-0"
+                      ? "translate-y-0 opacity-100"
+                      : "-translate-y-8 opacity-0"
                   }`}
                 >
-                  <h1 className="pt-5 text-balance font-serif text-2xl font-bold leading-tight tracking-tight text-primary sm:text-5xl md:text-3xl lg:text-4xl xl:text-5xl">
-                    EL COLEGIO NACIONAL DE CURADORES URBANOS
-                  </h1>
+                  <h2 className="pt-5 text-balance font-serif text-2xl font-bold text-primary sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                    Registro de Asistencia
+                  </h2>
                 </div>
 
-                {/* Texto de invitación */}
+                {/* Texto TREINTA AÑOS */}
                 <div
-                  className={`flex items-start justify-center gap-2 md:gap-3 transition-all duration-700 delay-200 ${
+                  className={`transition-all duration-1000 delay-300 ${
                     showElements.subtitle
-                      ? "opacity-100 translate-x-0"
-                      : "opacity-0 -translate-x-8"
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-8 opacity-0"
                   }`}
                 >
-                  <p
-                    className="text-balance text-center text-2xl leading-relaxed text-secondary italic antialiased sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl"
-                    style={{
-                      fontFamily:
-                        '"Playfair Display","Cormorant Garamond","EB Garamond","Libre Baskerville","Times New Roman",serif',
-                      letterSpacing: "-0.01em",
-                      fontWeight: 500,
-                      fontFeatureSettings: '"liga","clig","kern"',
-                    }}
-                  >
-                    tiene el honor de invitarle a la conmemoración de los
+                  <p className="text-balance font-serif text-xl font-bold leading-tight text-primary sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+                    TREINTA AÑOS DE LA FIGURA DEL<br />CURADOR URBANO EN COLOMBIA
                   </p>
                 </div>
 
-                {/* Logo 30 años y texto central */}
+                {/* Logo 30 años */}
                 <div
-                  className={`transition-all duration-1000 ${
+                  className={`flex justify-center transition-all duration-1000 delay-600 ${
                     showElements.logo30
-                      ? "scale-100 opacity-100 translate-y-0"
-                      : "scale-75 opacity-0 translate-y-12"
+                      ? "scale-100 opacity-100"
+                      : "scale-75 opacity-0"
                   }`}
                 >
-                  <div className="flex flex-col items-center gap-2 sm:gap-3 md:gap-3 lg:gap-4">
-                    <Image
-                      src="/images/30-anos-logo.png"
-                      alt="30 Años Curador Urbano"
-                      width={300}
-                      height={300}
-                      className="h-36 w-auto drop-shadow-2xl sm:h-44 md:h-48 lg:h-56 xl:h-64"
-                    />
-                    <div
-                      className={`text-center transition-all duration-700 delay-400 ${
-                        showElements.subtitle
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 translate-y-4"
-                      }`}
-                    >
-                      <p className="pt-2 text-balance font-serif text-xl font-bold text-primary sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
-                        TREINTA AÑOS
-                      </p>
-                      <p className="text-balance text-xl font-medium text-secondary sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-                        DE LA FIGURA DEL CURADOR URBANO EN COLOMBIA
-                      </p>
-                      <p className="text-balance text-md font-medium text-muted-foreground sm:text-sm md:text-sm lg:text-base">
-                        (Decreto-Ley 2150 de 1995)
-                      </p>
-                      <div className="mx-auto mt-1 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-secondary sm:w-20 lg:w-32" />
-                    </div>
+                  <Image
+                    src="/images/30-anos-logo.png"
+                    alt="30 Años Curador Urbano"
+                    width={300}
+                    height={300}
+                    className="h-40 w-auto sm:h-48 md:h-56 lg:h-64 xl:h-72"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Slide 2 - Notas Importantes */}
+      <div
+        className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out ${
+          currentSlide === 1
+            ? "translate-x-0 opacity-100"
+            : direction === "next"
+            ? "-translate-x-full opacity-0"
+            : "translate-x-full opacity-0"
+        }`}
+      >
+        <div className="relative h-full w-full bg-white dark:bg-white">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-secondary/10 via-secondary/5 to-transparent" />
+            <div className="absolute bottom-0 right-0 h-1/2 w-full bg-gradient-to-t from-primary/10 via-primary/5 to-transparent" />
+          </div>
+
+          <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-4 py-12 sm:px-6 md:px-12 md:py-16 lg:px-24">
+            <div className="w-full max-w-4xl space-y-8 md:space-y-12">
+              <div
+                className={`text-center transition-all duration-1000 delay-200 ${
+                  currentSlide === 1 && !isAnimating
+                    ? "translate-y-0 opacity-100"
+                    : "-translate-y-8 opacity-0"
+                }`}
+              >
+                <div className="mb-6 flex justify-center">
+                  <div className="rounded-full bg-gradient-to-br from-secondary to-primary p-6 shadow-2xl">
+                    <Sparkles className="h-12 w-12 text-white md:h-16 md:w-16" />
                   </div>
                 </div>
+                <h2 className="mb-4 font-serif text-3xl font-bold text-secondary sm:text-4xl md:text-5xl lg:text-6xl">
+                  Notas Importantes
+                </h2>
+              </div>
 
-                {/* Fechas */}
-                <div
-                  className={`space-y-2 transition-all duration-1000 md:space-y-3 ${
-                    showElements.dates
-                      ? "translate-x-0 opacity-100"
-                      : "-translate-x-full opacity-0"
-                  }`}
-                >
-                  <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-lg bg-card p-2.5 shadow-sm sm:p-3 md:gap-3 md:p-4 lg:p-5">
-                    <Calendar className="h-5 w-5 text-primary sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7" />
-                    <p className="text-sm font-semibold text-foreground sm:text-base md:text-base lg:text-lg xl:text-xl">
-                      28 y 29 de noviembre de 2025
+              <div
+                className={`transition-all duration-1000 delay-400 ${
+                  currentSlide === 1 && !isAnimating
+                    ? "scale-100 opacity-100"
+                    : "scale-95 opacity-0"
+                }`}
+              >
+                <div className="space-y-6 md:space-y-8">
+                  <div className="rounded-2xl border-2 border-secondary/30 bg-gradient-to-br from-secondary/10 to-primary/5 p-6 shadow-xl md:p-10">
+                    <div className="mb-4 flex items-center gap-3 md:mb-6">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-lg font-bold text-white md:h-12 md:w-12 md:text-xl">
+                        1
+                      </div>
+                      <Sparkles className="h-6 w-6 text-secondary md:h-7 md:w-7" />
+                    </div>
+                    <p className="text-base leading-relaxed text-foreground md:text-lg lg:text-xl">
+                      Los primeros 30 curadores urbanos miembros del Colegio Nacional de Curadores Urbanos que confirmen su asistencia mediante el formulario de inscripción recibirán la noche de alojamiento del viernes 28 de noviembre de 2025 gratuita.
                     </p>
                   </div>
-                </div>
 
-                {/* Ubicación */}
-                <div
-                  className={`transition-all duration-1000 ${
-                    showElements.location
-                      ? "translate-x-0 opacity-100"
-                      : "translate-x-full opacity-0"
-                  }`}
-                >
-                  <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-lg bg-card p-2.5 shadow-sm sm:p-3 md:gap-3 md:p-4 lg:p-5">
-                    <MapPin className="h-5 w-5 text-secondary sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7" />
-                    <p className="text-sm font-semibold text-foreground sm:text-base md:text-base lg:text-lg xl:text-xl">
-                      Montería, Córdoba
+                  <div className="rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-secondary/5 p-6 shadow-xl md:p-10">
+                    <div className="mb-4 flex items-center gap-3 md:mb-6">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-white md:h-12 md:w-12 md:text-xl">
+                        2
+                      </div>
+                      <Sparkles className="h-6 w-6 text-primary md:h-7 md:w-7" />
+                    </div>
+                    <p className="text-base leading-relaxed text-foreground md:text-lg lg:text-xl">
+                      Para la noche de celebración del viernes 28 de noviembre, cada curador podrá asistir únicamente con un acompañante mayor de edad.
                     </p>
                   </div>
                 </div>
@@ -321,10 +333,10 @@ export default function InvitationSlider() {
         </div>
       </div>
 
-      {/* Slide 2 - Programa del Evento */}
+      {/* Slide 3 - Programa del Evento */}
       <div
         className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out ${
-          currentSlide === 1
+          currentSlide === 2
             ? "translate-x-0 opacity-100"
             : direction === "next"
             ? "-translate-x-full opacity-0"
@@ -340,15 +352,13 @@ export default function InvitationSlider() {
               className="absolute right-[8%] bottom-[30%] h-40 w-40 animate-pulse rounded-full border border-primary/15 opacity-30"
               style={{ animationDelay: "0.7s" }}
             />
-            <div className="absolute left-[15%] bottom-[15%] h-32 w-32 rounded-full bg-gradient-to-br from-secondary/5 to-transparent blur-2xl" />
-            <div className="absolute right-[20%] top-[20%] h-36 w-36 rounded-full bg-gradient-to-tl from-primary/5 to-transparent blur-2xl" />
           </div>
 
-          <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-4 py-12 sm:px-6 md:px-12 md:py-16 lg:px-24">
-            <div className="w-full max-w-6xl space-y-6 md:space-y-8">
+          <div className="relative z-10 flex h-full items-center justify-center overflow-y-auto px-4 py-8 sm:px-6 md:px-12 lg:px-24">
+            <div className="w-full max-w-6xl space-y-4 md:space-y-6">
               <div
                 className={`text-center transition-all duration-1000 delay-200 ${
-                  currentSlide === 1 && !isAnimating
+                  currentSlide === 2 && !isAnimating
                     ? "translate-y-0 opacity-100"
                     : "-translate-y-8 opacity-0"
                 }`}
@@ -356,57 +366,109 @@ export default function InvitationSlider() {
                 <h2 className="mb-2 font-serif text-2xl font-bold text-primary sm:text-3xl md:text-4xl lg:text-5xl">
                   Programa del Evento
                 </h2>
-                <p className="text-base text-muted-foreground md:text-lg">
-                  Dos días de celebración y actividades
-                </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 md:gap-6">
                 {/* Viernes 28 */}
                 <div
                   className={`transition-all duration-1000 delay-300 ${
-                    currentSlide === 1 && !isAnimating
+                    currentSlide === 2 && !isAnimating
                       ? "translate-x-0 opacity-100"
                       : "-translate-x-12 opacity-0"
                   }`}
                 >
-                  <div className="h-full rounded-2xl border-2 border-primary/20 bg-card p-5 shadow-xl md:p-8">
-                    <div className="mb-4 flex items-center gap-3 border-b border-primary/10 pb-3 md:mb-6 md:pb-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground md:h-12 md:w-12 md:text-xl">
+                  <div className="rounded-2xl border-2 border-primary/20 bg-card p-4 shadow-xl md:p-6">
+                    <div className="mb-3 flex items-center gap-3 border-b border-primary/10 pb-3 md:mb-4">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground md:h-12 md:w-12">
                         28
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-primary md:text-xl">
+                        <h3 className="text-base font-bold text-primary md:text-lg">
                           Viernes 28 de noviembre
                         </h3>
+                        <p className="text-xs text-muted-foreground md:text-sm">
+                          Auditorio Pueblito Cordobés - Montería
+                        </p>
                       </div>
                     </div>
 
-                    <div className="space-y-3 md:space-y-4">
-                      <div className="flex items-start gap-2 md:gap-3">
-                        <MapPin className="mt-1 h-4 w-4 flex-shrink-0 text-secondary md:h-5 md:w-5" />
+                    <div className="grid grid-cols-1 gap-2 text-xs md:grid-cols-2 md:text-sm">
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <p className="text-sm font-semibold text-foreground md:text-base">
-                            Lugar: Auditorio Pueblito Cordobés - Montería
-                          </p>
+                          <span className="font-semibold">8:30 a.m.</span> Registro de asistencia
                         </div>
                       </div>
-
-                      <div className="flex items-start gap-2 md:gap-3">
-                        <Clock className="mt-1 h-4 w-4 flex-shrink-0 text-secondary md:h-5 md:w-5" />
-                        <div className="space-y-2">
-                          <p className="text-xs text-foreground md:text-sm">
-                            <span className="font-semibold">8:30 a.m. - 3:00 p.m.</span> Evento académico
-                          </p>
-                          <p className="text-xs text-foreground md:text-sm">
-                            <span className="font-semibold">3:00 p.m. - 4:00 p.m.</span> Parada Folclórica
-                          </p>
-                          <p className="text-xs text-foreground md:text-sm">
-                            <span className="font-semibold">5:00 p.m. - 6:00 p.m.</span> Recorrido
-                          </p>
-                          <p className="text-xs text-foreground md:text-sm">
-                            <span className="font-semibold">7:30 p.m.</span> Noche de Celebración
-                          </p>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">9:00 a.m.</span> Saludo de Bienvenida
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">9:15 a.m.</span> Palabras autoridades
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">9:30 a.m.</span> Ministerio de Vivienda
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">9:50 a.m.</span> Superintendencia
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">10:15 a.m.</span> Coffee Break
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">10:45 a.m.</span> Relato Fundador CNCU
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">12:00 m.</span> Almuerzo
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">1:30 p.m.</span> El Curador Urbano hoy
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">2:30 p.m.</span> Reconocimiento Fundadores
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">3:00-4:00 p.m.</span> Parada Folclórica
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">5:00-6:00 p.m.</span> Recorrido Ronda del Sinú
+                        </div>
+                      </div>
+                      <div className="col-span-full flex gap-2 rounded-lg bg-secondary/10 p-2">
+                        <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
+                        <div>
+                          <span className="font-semibold">7:30 p.m.</span> Noche "Sinuana"
                         </div>
                       </div>
                     </div>
@@ -416,61 +478,28 @@ export default function InvitationSlider() {
                 {/* Sábado 29 */}
                 <div
                   className={`transition-all duration-1000 delay-400 ${
-                    currentSlide === 1 && !isAnimating
+                    currentSlide === 2 && !isAnimating
                       ? "translate-x-0 opacity-100"
                       : "translate-x-12 opacity-0"
                   }`}
                 >
-                  <div className="h-full rounded-2xl border-2 border-secondary/20 bg-card p-5 shadow-xl md:p-8">
-                    <div className="mb-4 flex items-center gap-3 border-b border-secondary/10 pb-3 md:mb-6 md:pb-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-lg font-bold text-secondary-foreground md:h-12 md:w-12 md:text-xl">
+                  <div className="rounded-2xl border-2 border-secondary/20 bg-card p-4 shadow-xl md:p-6">
+                    <div className="mb-3 flex items-center gap-3 border-b border-secondary/10 pb-3 md:mb-4">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-lg font-bold text-secondary-foreground md:h-12 md:w-12">
                         29
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-secondary md:text-xl">
+                        <h3 className="text-base font-bold text-secondary md:text-lg">
                           Sábado 29 de noviembre
                         </h3>
                       </div>
                     </div>
 
-                    <div className="space-y-3 md:space-y-4">
-                      <div className="flex items-start gap-2 md:gap-3">
-                        <Clock className="mt-1 h-4 w-4 flex-shrink-0 text-primary md:h-5 md:w-5" />
-                        <div className="space-y-1">
-                          <p className="text-xs text-foreground md:text-sm">
-                            <span className="font-semibold">9:00 a.m. - 1:00 p.m.</span> Actividad de Integración - Playa
-                          </p>
-                        </div>
+                    <div className="flex items-start gap-2 text-xs md:text-sm">
+                      <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-primary md:h-4 md:w-4" />
+                      <div>
+                        <span className="font-semibold">9:00 a.m. - 1:00 p.m.</span> Actividad de Integración - Ida a San Antero (Playa)
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Notas Importantes */}
-              <div
-                className={`transition-all duration-1000 delay-500 ${
-                  currentSlide === 1 && !isAnimating
-                    ? "scale-100 opacity-100"
-                    : "scale-95 opacity-0"
-                }`}
-              >
-                <div className="space-y-4">
-                  <div className="rounded-2xl border-2 border-secondary bg-gradient-to-br from-secondary/10 to-primary/5 p-5 shadow-xl md:p-8">
-                    <div className="mb-3 flex items-center justify-center gap-2 md:mb-4">
-                      <Sparkles className="h-5 w-5 text-secondary md:h-6 md:w-6" />
-                      <h3 className="text-lg font-bold text-secondary md:text-xl">
-                        Nota Importante
-                      </h3>
-                      <Sparkles className="h-5 w-5 text-secondary md:h-6 md:w-6" />
-                    </div>
-                    <div className="space-y-3 text-sm md:text-base">
-                      <p className="text-foreground">
-                        • Los primeros 30 asociados que confirmen su asistencia mediante el formulario de inscripción recibirán una noche de alojamiento gratuita, correspondiente a la noche del viernes 28 de noviembre de 2025.
-                      </p>
-                      <p className="text-foreground">
-                        • Para la noche de celebración del viernes 28 de noviembre, cada curador podrá asistir únicamente con un acompañante mayor de edad.
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -480,10 +509,10 @@ export default function InvitationSlider() {
         </div>
       </div>
 
-      {/* Slide 3 - Confirmación */}
+      {/* Slide 4 - Confirmación */}
       <div
         className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out ${
-          currentSlide === 2
+          currentSlide === 3
             ? "translate-x-0 opacity-100"
             : direction === "next"
             ? "-translate-x-full opacity-0"

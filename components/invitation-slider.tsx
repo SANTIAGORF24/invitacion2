@@ -225,6 +225,28 @@ export default function InvitationSlider() {
                   </h1>
                 </div>
 
+                {/* Texto de invitación */}
+                <div
+                  className={`flex items-start justify-center gap-2 md:gap-3 transition-all duration-700 delay-200 ${
+                    showElements.subtitle
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 -translate-x-8"
+                  }`}
+                >
+                  <p
+                    className="text-balance text-center text-xl leading-relaxed text-secondary italic antialiased sm:text-2xl md:text-3xl lg:text-4xl"
+                    style={{
+                      fontFamily:
+                        '"Playfair Display","Cormorant Garamond","EB Garamond","Libre Baskerville","Times New Roman",serif',
+                      letterSpacing: "-0.01em",
+                      fontWeight: 500,
+                      fontFeatureSettings: '"liga","clig","kern"',
+                    }}
+                  >
+                    tiene el honor de invitarle a la conmemoración de los
+                  </p>
+                </div>
+
                 {/* Logo 30 años y texto central */}
                 <div
                   className={`transition-all duration-1000 ${
@@ -241,26 +263,6 @@ export default function InvitationSlider() {
                       height={300}
                       className="h-32 w-auto drop-shadow-2xl sm:h-40 lg:h-56 xl:h-64"
                     />
-                    <div
-                      className={`flex items-start justify-center gap-2 md:gap-3 transition-all duration-700 delay-200 ${
-                        showElements.subtitle
-                          ? "opacity-100 translate-x-0"
-                          : "opacity-0 -translate-x-8"
-                      }`}
-                    >
-                      <p
-                        className="text-balance text-center text-xl leading-relaxed text-secondary italic antialiased sm:text-2xl md:text-3xl lg:text-4xl"
-                        style={{
-                          fontFamily:
-                            '"Playfair Display","Cormorant Garamond","EB Garamond","Libre Baskerville","Times New Roman",serif',
-                          letterSpacing: "-0.01em",
-                          fontWeight: 500,
-                          fontFeatureSettings: '"liga","clig","kern"',
-                        }}
-                      >
-                        tiene el honor de invitarle a la conmemoración de los
-                      </p>
-                    </div>
                     <div
                       className={`text-center transition-all duration-700 delay-400 ${
                         showElements.subtitle
@@ -309,7 +311,7 @@ export default function InvitationSlider() {
                   <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-lg bg-card p-3 shadow-sm md:gap-3 md:p-4 lg:p-6">
                     <MapPin className="h-4 w-4 text-secondary md:h-5 md:w-5 lg:h-7 lg:w-7" />
                     <p className="text-sm font-semibold text-foreground md:text-base lg:text-xl xl:text-2xl">
-                      Montería y San Antero, Córdoba
+                      Montería, Córdoba
                     </p>
                   </div>
                 </div>
@@ -606,7 +608,7 @@ export default function InvitationSlider() {
                       Su participación ha sido confirmada exitosamente.
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Nos vemos el 28 y 29 de noviembre en Montería y San Antero.
+                      Nos vemos el 28 y 29 de noviembre en Montería.
                     </p>
                     <div className="mt-6 rounded-xl bg-green-50 p-4">
                       <p className="text-xs italic text-green-700">
@@ -643,7 +645,7 @@ export default function InvitationSlider() {
                     </span>
                     <span className="flex items-center justify-center gap-2">
                       <MapPin className="h-4 w-4 text-secondary" />
-                      Montería y San Antero
+                      Montería, Córdoba
                     </span>
                   </div>
                 </div>

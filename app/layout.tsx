@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Celebración 30 años de la figura del Curador Urbano',
-    description: 'Celebración de las tres décadas del Colegio Nacional de Curadores Urbanos',
+    description: 'Celebración 30 años de la figura del Curador Urbano',
     type: 'website',
   },
 }

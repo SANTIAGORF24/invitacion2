@@ -220,7 +220,7 @@ export default function InvitationSlider() {
                       : "-translate-x-full opacity-0"
                   }`}
                 >
-                  <h1 className="text-balance font-serif text-2xl font-bold leading-tight tracking-tight text-primary sm:text-5xl md:text-3xl lg:text-4xl xl:text-5xl">
+                  <h1 className="pt-5 text-balance font-serif text-2xl font-bold leading-tight tracking-tight text-primary sm:text-5xl md:text-3xl lg:text-4xl xl:text-5xl">
                     EL COLEGIO NACIONAL DE CURADORES URBANOS
                   </h1>
                 </div>

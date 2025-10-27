@@ -310,7 +310,7 @@ export default function InvitationSlider() {
                       </div>
                       <Sparkles className="h-6 w-6 text-secondary md:h-7 md:w-7" />
                     </div>
-                    <p className="text-base leading-relaxed text-foreground md:text-lg lg:text-xl">
+                    <p className="text-base leading-relaxed text-foreground text-justify md:text-lg lg:text-xl">
                       Los primeros 30 curadores urbanos miembros del Colegio Nacional de Curadores Urbanos que confirmen su asistencia mediante el formulario de inscripción recibirán la noche de alojamiento del viernes 28 de noviembre de 2025 gratuita.
                     </p>
                   </div>
@@ -322,8 +322,8 @@ export default function InvitationSlider() {
                       </div>
                       <Sparkles className="h-6 w-6 text-primary md:h-7 md:w-7" />
                     </div>
-                    <p className="text-base leading-relaxed text-foreground md:text-lg lg:text-xl">
-                      Para la noche de celebración del viernes 28 de noviembre, cada curador podrá asistir únicamente con un acompañante mayor de edad.
+                    <p className="text-base leading-relaxed text-foreground text-justify md:text-lg lg:text-xl">
+                      Para la noche de celebración del viernes 28 de noviembre cada curador podrá asistir con un acompañante mayor de edad.
                     </p>
                   </div>
                 </div>
@@ -408,13 +408,13 @@ export default function InvitationSlider() {
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">9:15 a.m.</span> Palabras autoridades locales
+                          <span className="font-semibold">9:15 a.m.</span> Palabras Autoridades Locales
                         </div>
                       </div>
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">9:30 a.m.</span> Ministerio de Vivienda
+                          <span className="font-semibold">9:30 a.m.</span> Intervención Ministerio de Vivienda, Ciudad y Territorio
                         </div>
                       </div>
                       <div className="flex gap-2">
@@ -432,7 +432,7 @@ export default function InvitationSlider() {
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">10:45 a.m.</span> Relato Fundador CNCU Arq. Farid Numa Hernández
+                          <span className="font-semibold">10:45 a.m.</span> Relato Primer Curador y Miembro Fundador CNCU - Arq. Farid Numa Hernández, Expresidente CNCU
                         </div>
                       </div>
                       <div className="flex gap-2">
@@ -444,19 +444,19 @@ export default function InvitationSlider() {
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">1:30 p.m.</span> El curado Urbano hoy – Presidente del CNCU
+                          <span className="font-semibold">1:30 p.m.</span> El Presente del Curador Urbano – Arq. William Toboada Díaz, Presidente del CNCU
                         </div>
                       </div>
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">2:30 p.m.</span> Reconocimiento Fundadores CNCU
+                          <span className="font-semibold">2:30 p.m.</span> Reconocimiento Primeros Curadores Urbanos
                         </div>
                       </div>
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">3:00 p.m. a 4:00 p.m.</span> Parada Folclórica ¨Pueblito Cordobes¨
+                          <span className="font-semibold">3:00 p.m. a 4:00 p.m.</span> Parada Folclórica ¨Pueblito Cordobés¨
                         </div>
                       </div>
                       <div className="flex gap-2">

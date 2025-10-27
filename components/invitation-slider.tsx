@@ -382,12 +382,12 @@ export default function InvitationSlider() {
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground md:h-12 md:w-12">
                         28
                       </div>
-                      <div>
+                        <div>
                         <h3 className="text-base font-bold text-primary md:text-lg">
                           Viernes 28 de noviembre
                         </h3>
                         <p className="text-xs text-muted-foreground md:text-sm">
-                          Auditorio Pueblito Cordobés - Montería
+                          Lugar: Auditorio Pueblito Cordobés – Montería
                         </p>
                       </div>
                     </div>
@@ -402,13 +402,13 @@ export default function InvitationSlider() {
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">9:00 a.m.</span> Saludo de Bienvenida
+                          <span className="font-semibold">9:00 a.m.</span> Saludo de Bienvenida – Presidente del CNCU
                         </div>
                       </div>
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">9:15 a.m.</span> Palabras autoridades
+                          <span className="font-semibold">9:15 a.m.</span> Palabras autoridades locales
                         </div>
                       </div>
                       <div className="flex gap-2">
@@ -420,7 +420,7 @@ export default function InvitationSlider() {
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">9:50 a.m.</span> Superintendencia
+                          <span className="font-semibold">9:50 a.m.</span> Intervención Superintendencia de Notariado y Registro
                         </div>
                       </div>
                       <div className="flex gap-2">
@@ -432,7 +432,7 @@ export default function InvitationSlider() {
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">10:45 a.m.</span> Relato Fundador CNCU
+                          <span className="font-semibold">10:45 a.m.</span> Relato Fundador CNCU Arq. Farid Numa Hernández
                         </div>
                       </div>
                       <div className="flex gap-2">
@@ -444,31 +444,31 @@ export default function InvitationSlider() {
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">1:30 p.m.</span> El Curador Urbano hoy
+                          <span className="font-semibold">1:30 p.m.</span> El curado Urbano hoy – Presidente del CNCU
                         </div>
                       </div>
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">2:30 p.m.</span> Reconocimiento Fundadores
+                          <span className="font-semibold">2:30 p.m.</span> Reconocimiento Fundadores CNCU
                         </div>
                       </div>
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">3:00-4:00 p.m.</span> Parada Folclórica
+                          <span className="font-semibold">3:00 p.m. a 4:00 p.m.</span> Parada Folclórica ¨Pueblito Cordobes¨
                         </div>
                       </div>
                       <div className="flex gap-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">5:00-6:00 p.m.</span> Recorrido Ronda del Sinú
+                          <span className="font-semibold">5:00 p.m. a 6:00 p.m.</span> Recorrido ¨Ronda del Sinú¨
                         </div>
                       </div>
-                      <div className="col-span-full flex gap-2 rounded-lg bg-secondary/10 p-2">
+                        <div className="col-span-full flex gap-2 rounded-lg bg-secondary/10 p-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">7:30 p.m.</span> Noche "Sinuana"
+                          <span className="font-semibold">7:30 p.m.</span> Noche ¨Sinuana¨
                         </div>
                       </div>
                     </div>
@@ -495,10 +495,10 @@ export default function InvitationSlider() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-2 text-xs md:text-sm">
+                      <div className="flex items-start gap-2 text-xs md:text-sm">
                       <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-primary md:h-4 md:w-4" />
                       <div>
-                        <span className="font-semibold">9:00 a.m. - 1:00 p.m.</span> Actividad de Integración - Ida a San Antero (Playa)
+                        <span className="font-semibold">9:00 a.m. a 1 p.m.</span> Actividad de Integración – Ida a San Antero (Playa)
                       </div>
                     </div>
                   </div>
@@ -697,7 +697,6 @@ export default function InvitationSlider() {
                           id="nombre"
                           name="nombre"
                           type="text"
-                          placeholder="Ej: Juan Carlos Pérez García"
                           value={formData.nombre}
                           onChange={handleChange}
                           required
@@ -715,7 +714,6 @@ export default function InvitationSlider() {
                           id="numero_despacho"
                           name="numero_despacho"
                           type="text"
-                          placeholder="Ej: 001-2024"
                           value={formData.numero_despacho}
                           onChange={handleChange}
                           required
@@ -733,7 +731,6 @@ export default function InvitationSlider() {
                           id="municipio"
                           name="municipio"
                           type="text"
-                          placeholder="Ej: Bogotá D.C."
                           value={formData.municipio}
                           onChange={handleChange}
                           required

@@ -50,8 +50,9 @@ export default function AdminRegistros() {
   const exportarAExcel = () => {
     setExportando(true)
     try {
-      // Preparar datos para Excel
-      const datosExcel = registros.map((registro, index) => ({
+      // Preparar datos para Excel - invertir el orden para que el primero registrado aparezca arriba
+      const registrosOrdenados = [...registros].reverse()
+      const datosExcel = registrosOrdenados.map((registro, index) => ({
         '#': index + 1,
         'Nombre Completo': registro.nombre,
         'Número de Despacho': registro.numero_despacho,

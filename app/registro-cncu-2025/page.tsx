@@ -19,10 +19,37 @@ export default function RegistroPage() {
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    const { name, value } = e.target
+    
+    // Si es el campo numero_despacho, solo permitir números
+    if (name === "numero_despacho") {
+      const soloNumeros = value.replace(/\D/g, "")
+      setFormData({
+        ...formData,
+        [name]: soloNumeros,
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      })
+    }
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Permitir: backspace, delete, tab, escape, enter, flechas
+    const allowedKeys = ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown']
+    
+    // Si es una tecla permitida o Ctrl/Cmd + A/C/V/X, permitir
+    if (allowedKeys.includes(e.key) || 
+        (e.ctrlKey || e.metaKey) && ['a', 'c', 'v', 'x'].includes(e.key.toLowerCase())) {
+      return
+    }
+    
+    // Si no es un número, prevenir la acción
+    if (!/^[0-9]$/.test(e.key)) {
+      e.preventDefault()
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -156,9 +183,12 @@ export default function RegistroPage() {
                 id="numero_despacho"
                 name="numero_despacho"
                 type="text"
-                placeholder="Ej: 001-2024"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                placeholder="Ej: 123"
                 value={formData.numero_despacho}
                 onChange={handleChange}
+                onKeyDown={handleKeyDown}
                 required
                 disabled={loading}
                 className="h-12 text-base"

@@ -48,14 +48,26 @@ export default function InvitationSlider() {
     if (isAnimating) return;
     setDirection("next");
     setIsAnimating(true);
-    setCurrentSlide((prev) => (prev + 1) % 4);
+    // Saltar del slide 1 al 3 (omitir el 2)
+    setCurrentSlide((prev) => {
+      if (prev === 0) return 2; // Del slide 1 (index 0) al slide 3 (index 2)
+      if (prev === 2) return 3; // Del slide 3 al slide 4
+      if (prev === 3) return 0; // Del slide 4 de vuelta al slide 1
+      return (prev + 1) % 4;
+    });
   };
 
   const prevSlide = () => {
     if (isAnimating) return;
     setDirection("prev");
     setIsAnimating(true);
-    setCurrentSlide((prev) => (prev - 1 + 4) % 4);
+    // Saltar del slide 3 al 1 (omitir el 2)
+    setCurrentSlide((prev) => {
+      if (prev === 2) return 0; // Del slide 3 (index 2) al slide 1 (index 0)
+      if (prev === 3) return 2; // Del slide 4 al slide 3
+      if (prev === 0) return 3; // Del slide 1 de vuelta al slide 4
+      return (prev - 1 + 4) % 4;
+    });
   };
 
   useEffect(() => {
@@ -543,7 +555,7 @@ export default function InvitationSlider() {
                   </div>
                 </div>
 
-                {/* Nota */}
+                {/* Nota Importante */}
                 <div
                   className={`transition-all duration-1000 delay-500 ${
                     currentSlide === 2 && !isAnimating
@@ -551,10 +563,13 @@ export default function InvitationSlider() {
                       : "translate-y-8 opacity-0"
                   }`}
                 >
-                  <div className="rounded-xl bg-primary/5 border border-primary/20 p-4 md:p-5">
-                    <p className="text-xs md:text-sm text-foreground leading-relaxed">
-                      <span className="font-bold">*</span>Para la noche de celebración del viernes 28 de noviembre cada curador podrá asistir con un acompañante mayor de edad.
-                    </p>
+                  <div className="rounded-2xl bg-white border-2 border-primary/40 p-5 md:p-6 shadow-lg">
+                    <div className="flex items-start gap-3">
+                      <span className="text-2xl md:text-3xl font-bold text-primary shrink-0">*</span>
+                      <p className="text-sm md:text-base lg:text-lg text-primary leading-relaxed font-semibold">
+                        Para la noche de celebración del viernes 28 de noviembre cada curador podrá asistir con un acompañante mayor de edad.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

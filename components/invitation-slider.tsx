@@ -785,7 +785,6 @@ export default function InvitationSlider() {
                           type="text"
                           inputMode="numeric"
                           pattern="[0-9]*"
-                          placeholder="Ej: 123"
                           value={formData.numero_despacho}
                           onChange={handleChange}
                           onKeyDown={handleKeyDown}

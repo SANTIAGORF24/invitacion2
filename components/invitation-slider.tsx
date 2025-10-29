@@ -507,7 +507,7 @@ export default function InvitationSlider() {
                         <div className="col-span-full flex gap-2 rounded-lg bg-secondary/10 p-2">
                         <Clock className="mt-0.5 h-3 w-3 flex-shrink-0 text-secondary md:h-4 md:w-4" />
                         <div>
-                          <span className="font-semibold">7:30 p.m.</span> Noche ¨Sinuana¨
+                          <span className="font-semibold">7:30 p.m.</span> Noche ¨Sinuana¨<span className="font-bold">*</span>
                         </div>
                       </div>
                     </div>
@@ -540,6 +540,21 @@ export default function InvitationSlider() {
                         <span className="font-semibold">9:00 a.m. a 1 p.m.</span> Actividad de Integración – Ida a San Antero (Playa)
                       </div>
                     </div>
+                  </div>
+                </div>
+
+                {/* Nota */}
+                <div
+                  className={`transition-all duration-1000 delay-500 ${
+                    currentSlide === 2 && !isAnimating
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-8 opacity-0"
+                  }`}
+                >
+                  <div className="rounded-xl bg-primary/5 border border-primary/20 p-4 md:p-5">
+                    <p className="text-xs md:text-sm text-foreground leading-relaxed">
+                      <span className="font-bold">*</span>Para la noche de celebración del viernes 28 de noviembre cada curador podrá asistir con un acompañante mayor de edad.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -780,15 +795,6 @@ export default function InvitationSlider() {
                           disabled={loading}
                           className="h-11 text-sm md:h-12 md:text-base"
                         />
-                      </div>
-
-                      <div className="rounded-xl bg-secondary/10 p-3 md:p-4">
-                        <p className="text-xs font-semibold text-secondary md:text-sm">
-                          ⭐ Beneficio Especial
-                        </p>
-                        <p className="mt-2 text-xs text-muted-foreground">
-                          Los primeros 30 asociados que confirmen su asistencia recibirán una noche de alojamiento gratuita correspondiente al viernes 28 de noviembre de 2025.
-                        </p>
                       </div>
 
                       <Button
